@@ -32,7 +32,7 @@ class Manager extends Employee {
         return this.salary * 12 * .1
     }; //returns 10% of manager's annual salary
 
-    //Task 4 - modified to consider bonuses for managers
+//Task 4: modified to consider bonuses for managers
     calculateAnnualSalary() {
         return super.calculateAnnualSalary() + this.calculateBonus();
     };
@@ -56,12 +56,12 @@ class Company {
         this.employees.forEach(employee => {console.log(employee.getDetails())});
     }; //logs all employee details
 
-    //Task 4: Implementing a Payroll System
+//Task 4: Implementing a Payroll System
     calculateTotalPayroll() {
         return this.employees.reduce((total, employee) => total + employee.calculateAnnualSalary(), 0);
     }; //returns the sum of all employees (including manager)
 
-    //Task 5: adding method in company class
+//Task 5: adding method in company class
     promoteToManager(employee,teamSize) {
         const index = this.employees.indexOf(employee);
         this.employees[index] = new Manager(employee.name, employee.id, employee.department, employee.salary, teamSize);
@@ -69,8 +69,8 @@ class Company {
 };
 
 const company = new Company("TechCorp");
-company.addEmployee(emp1);
-company.addEmployee(mgr1);
+company.addEmployee(emp1); //Alice Johnson info
+company.addEmployee(mgr1); //John Smith info
 company.listEmployees();
 // Employee: Alice Johnson, ID: 101, Department: Sales, Salary: $5000
 // Manager: John Smith, ID: 201, Department: IT, Salary: $8000, Team Size: 5
@@ -79,7 +79,7 @@ company.listEmployees();
 console.log(company.calculateTotalPayroll()); //165600
 
 //Task 5: Implementing Promotions
-company.promoteToManager(emp1, 3);
+company.promoteToManager(emp1, 3); //Alice info -> manager
 company.listEmployees();
 //Manager: Alice Johnson, ID: 101, Department: Sales, Salary: $5000, Team Size: 3
 //Manager: John Smith, Id: 201, Department: IT, Salary: 8000, Team Size: 5
