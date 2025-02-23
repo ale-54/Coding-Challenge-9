@@ -60,6 +60,12 @@ class Company {
     calculateTotalPayroll() {
         return this.employees.reduce((total, employee) => total + employee.calculateAnnualSalary(), 0);
     }; //returns the sum of all employees (including manager)
+
+    //Task 5: adding method in company class
+    promoteToManager(employee,teamSize) {
+        const index = this.employees.indexOf(employee);
+        this.employees[index] = new Manager(employee.name, employee.id, employee.department, employee.salary, teamSize);
+    };
 };
 
 const company = new Company("TechCorp");
@@ -71,3 +77,9 @@ company.listEmployees();
 
 //Task 4: Implementing a Payroll System
 console.log(company.calculateTotalPayroll()); //165600
+
+//Task 5: Implementing Promotions
+company.promoteToManager(emp1, 3);
+company.listEmployees();
+//Manager: Alice Johnson, ID: 101, Department: Sales, Salary: $5000, Team Size: 3
+//Manager: John Smith, Id: 201, Department: IT, Salary: 8000, Team Size: 5
